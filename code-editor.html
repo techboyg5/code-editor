@@ -65,6 +65,16 @@
                 border: 0;
                 box-sizing: border-box;
             }
+            .close-button {
+                position: fixed;
+                top: 0;
+                right: 0;
+                background: white;
+                color: black;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+            }
         </style>
     </head>
     <body>
@@ -79,9 +89,9 @@
                 <iframe id="result-frame" src="about:blank"></iframe>
             </div>
         </div>
+        <button class="close-button" onclick="window.parent.postMessage('codeEditorClose', '*');">× Close</button>
         <script>
             var resultFrame = document.getElementById("result-frame");
-
             function updateFrame() {
                 var html = document.getElementById("html").value;
                 var css = document.getElementById("css").value;
