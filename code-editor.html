@@ -74,6 +74,7 @@
                 border: none;
                 padding: 5px 10px;
                 cursor: pointer;
+                font-family: button;
             }
         </style>
     </head>
@@ -89,7 +90,12 @@
                 <iframe id="result-frame" src="about:blank"></iframe>
             </div>
         </div>
-        <button class="close-button" onclick="window.parent.postMessage('codeEditorClose', '*');">× Close</button>
+        <a class="close-button" data-fancybox data-src="#close-confirm">× Close</a>
+        <div id="close-confirm" style="display:none">
+            <p>Closing the Code Editor will remove all code. Are you sure?</p>
+            <button onclick="window.parent.postMessage('codeEditorClose', '*');">Yes</button>
+            <button onclick="$.fancybox.close();">No</button>
+        </div>
         <script>
             var resultFrame = document.getElementById("result-frame");
             function updateFrame() {
