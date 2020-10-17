@@ -65,7 +65,7 @@
                 border: 0;
                 box-sizing: border-box;
             }
-            .close-button {
+            .about-button {
                 position: fixed;
                 top: 0;
                 right: 0;
@@ -90,11 +90,11 @@
                 <iframe id="result-frame" src="about:blank"></iframe>
             </div>
         </div>
-        <button class="close-button" data-fancybox data-src="#close-confirm">× Close</button>
-        <div id="close-confirm" style="display:none">
-            <p>Closing the Code Editor will remove all code. Are you sure?</p>
-            <button onclick="window.parent.postMessage('codeEditorClose', '*');">Yes</button>
-            <button onclick="$.fancybox.close();">No</button>
+        <button class="about-button" data-fancybox data-src="#about-dialog">About</button>
+        <div id="about-dialog" style="display:none">
+		<h3>techboyg5 Code Editor</h3>
+		<p>A simple HTML, CSS, and JavaScript code editor that can easily be embedded in a website.
+            	<button onclick="$.fancybox.close();">OK</button>
         </div>
         <script>
             var resultFrame = document.getElementById("result-frame");
