@@ -6,24 +6,55 @@ A simple HTML, CSS, and JavaScript code editor. Used on the [Web Development Tut
 
 ## Embedding
 
-You can embed the code editor in an iframe, a fancybox, or a popup.
+You can embed the code editor in an iframe, or open it in a popup.
 
 ### Iframe
 
-    <iframe src="https://codeeditor.techboyg5blog.com/code-editor.html" width="400" height="300" frameborder="0"></iframe>
-
-### Fancybox
-
-Make sure to load the fancybox library.
-
-    <a href="https://codeeditor.techboyg5blog.com/code-editor.html" data-type="iframe">Open Code Editor</a>
-
-Fancybox is used for the Code Editor on the Web Development Tutorial, as well as the "About" dialog box inside the Code Editor itself.
+    <iframe id="g5CodeEditor" src="https://codeeditor.techboyg5blog.com/code-editor.html" width="400" height="300" frameborder="0"></iframe>
 
 ### Popup
 
-    <a href="javascript:window.open('https://codeeditor.techboyg5blog.com/code-editor.html', 'g5CodeEditor', 'width=400,height=300');">Open Code Editor</a>
+    <a href="javascript:openCodeEditor()">Open Code Editor</a>
+    <script>
+        function openCodeEditor() {
+            var g5CodeEditor = window.open("https://codeeditor.techboyg5blog.com/code-editor.html", "g5CodeEditor", "width=400,height=300");
+        }
+    </script>
 
 ## API
 
-In the future I will create an API which will allow communication between the Code Editor and your website.
+### Fill the HTML box
+
+**Popup**
+
+    var g5CodeEditor = window.open("https://codeeditor.techboyg5blog.com/code-editor.html", "g5CodeEditor", "width=400,height=300");
+    g5CodeEditor.postMessage(["htmlBox", "<h1>Hello World!</h1>"], "https://codeeditor.techboyg5blog.com");
+
+**Iframe**
+
+    var g5CodeEditor = document.getElementById("g5CodeEditor");
+    g5CodeEditor.contentWindow.postMessage(["htmlBox", "<h1>Hello World!</h1>"], "https://codeeditor.techboyg5blog.com");
+
+### Fill the CSS box
+
+**Popup**
+
+    var g5CodeEditor = window.open("https://codeeditor.techboyg5blog.com/code-editor.html", "g5CodeEditor", "width=400,height=300");
+    g5CodeEditor.postMessage(["cssBox", "body {\nfont-family: sans-serif;\n}"], "https://codeeditor.techboyg5blog.com");
+
+**Iframe**
+
+    var g5CodeEditor = document.getElementById("g5CodeEditor");
+    g5CodeEditor.contentWindow.postMessage(["cssBox", "body {\nfont-family: sans-serif;\n}"], "https://codeeditor.techboyg5blog.com");
+
+### Fill the JavaScript box
+
+**Popup**
+
+    var g5CodeEditor = window.open("https://codeeditor.techboyg5blog.com/code-editor.html", "g5CodeEditor", "width=400,height=300");
+    g5CodeEditor.postMessage(["jsBox", "console.log(\"Hello World!\");"], "https://codeeditor.techboyg5blog.com");
+
+**Iframe**
+
+    var g5CodeEditor = document.getElementById("g5CodeEditor");
+    g5CodeEditor.contentWindow.postMessage(["jsBox", "console.log(\"Hello World!\");"], "https://codeeditor.techboyg5blog.com");
