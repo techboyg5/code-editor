@@ -14,6 +14,7 @@
   <body>
     <h1>Code Editor API Demo</h1>
     <iframe id="g5CodeEditor" src="https://codeeditor.techboyg5blog.com/code-editor.html"></iframe>
+    <h2>Filling Boxes</h2>
     <table>
       <tr>
         <td>
@@ -40,6 +41,23 @@
         </td>
       </tr>
     </table>
+    <h2>Updating the Frame</h2>
+    <button onclick="updateFrame()">Update Frame</button>
+    <h2>Applying Custom CSS</h2>
+    <table>
+      <tr>
+        <td>
+          <textarea id="custom-css"></textarea>
+        </td>
+        <td>
+          <button onclick="customCss()">Apply Custom CSS from the left box</button>
+        </td>
+      </tr>
+    </table>
+    <h2>Getting Data</h2>
+    <button onclick="getHtml()">Get HTML</button>
+    <button onclick="getCss()">Get CSS</button>
+    <button onclick="getJs()">Get JavaScript</button>
     <script>
       var g5CodeEditor = document.getElementById("g5CodeEditor");
       function fillHtml() {
@@ -51,6 +69,33 @@
       function fillJs() {
         g5CodeEditor.contentWindow.postMessage(["jsBox", document.getElementById("js").value], "https://codeeditor.techboyg5blog.com");
       }
+      function updateFrame() {
+        g5CodeEditor.contentWindow.postMessage(["updateFrame"], "https://codeeditor.techboyg5blog.com");
+      }
+      function customCss() {
+        g5CodeEditor.contentWindow.postMessage(["customCss", document.getElementById("custom-css").value], "https://codeeditor.techboyg5blog.com");
+      }
+      function getHtml() {
+        g5CodeEditor.contentWindow.postMessage(["getHtml"], "https://codeeditor.techboyg5blog.com");
+      }
+      function getCss() {
+        g5CodeEditor.contentWindow.postMessage(["getCss"], "https://codeeditor.techboyg5blog.com");
+      }
+      function getJs() {
+        g5CodeEditor.contentWindow.postMessage(["getJs"], "https://codeeditor.techboyg5blog.com");
+      }
+      function getData(event) {
+        if (event.data[0] == "getHtmlCallback") {
+          alert("HTML: " + event.data[1]);
+        }
+        if (event.data[0] == "getCssCallback") {
+          alert("CSS: " + event.data[1]);
+        }
+        if (event.data[0] == "getJsCallback") {
+          alert("JavaScript: " + event.data[1]);
+        }
+      }
+      window.addEventListener("message", getData);
     </script>
   </body>
 </html>
