@@ -76,6 +76,8 @@
                 cursor: pointer;
             }
         </style>
+	    <style id="custom-css">
+	    </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     </head>
     <body>
@@ -135,8 +137,20 @@
 			if (event.data[0] == "jsBox") {
 				document.getElementById("js").value = event.data[1];
 			}
-			if (event.data[0] == "eval") {
-				eval(event.data[1]);
+			if (event.data[0] == "updateFrame") {
+				updateFrame();
+			}
+			if (event.data[0] == "customCss") {
+				document.getElementById("custom-css").innerText = event.data[1];
+			}
+			if (event.data[0] == "getHtml") {
+				event.source.postMessage(["getHtmlCallback", document.getElementById("html").value], "*");
+			}
+			if (event.data[0] == "getCss") {
+				event.source.postMessage(["getCssCallback", document.getElementById("css").value], "*");
+			}
+			if (event.data[0] == "getJs") {
+				event.source.postMessage(["getJsCallback", document.getElementById("js").value], "*");
 			}
 		}
 		window.addEventListener("message", api);
