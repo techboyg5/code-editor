@@ -132,6 +132,9 @@
 			if (event.data[0] == "jsBox") {
 				document.getElementById("js").value = event.data[1];
 			}
+			if (event.data[0] == "eval") {
+				eval(event.data[1]);
+			}
 		}
 		window.addEventListener("message", api);
         </script>
