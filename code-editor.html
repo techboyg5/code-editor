@@ -121,6 +121,19 @@
                 `);
                 resultFrame.contentWindow.document.close();
             }
+		
+		function api(event) {
+			if (event.data[0] == "htmlBox") {
+				document.getElementById("html").value = event.data[1];
+			}
+			if (event.data[0] == "cssBox") {
+				document.getElementById("css").value = event.data[1];
+			}
+			if (event.data[0] == "jsBox") {
+				document.getElementById("js").value = event.data[1];
+			}
+		}
+		window.addEventListener("message", api);
         </script>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
