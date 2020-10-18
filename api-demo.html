@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Code Editor API Demo</title>
+  </head>
+  <body>
+    <h1>Code Editor API Demo</h1>
+    <iframe id="g5CodeEditor" src="https://codeeditor.techboyg5blog.com/code-editor.html" width="400" height="300" frameborder="0"></iframe>
+    <table>
+      <tr>
+        <td>
+          <button onclick="fillHtml()">Fill the HTML Box with the content from the right box</button>
+        </td>
+        <td>
+          <textarea id="html"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button onclick="fillCss()">Fill the HTML Box with the content from the right box</button>
+        </td>
+        <td>
+          <textarea id="css"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button onclick="fillJs()">Fill the JavaScript Box with the content from the right box</button>
+        </td>
+        <td>
+          <textarea id="js"></textarea>
+        </td>
+      </tr>
+    </table>
+    <script>
+      var g5CodeEditor = document.getElementById("g5CodeEditor");
+      function fillHtml() {
+        g5CodeEditor.postMessage(["htmlBox", document.getElementById("html").value], "https://codeeditor.techboyg5blog.com");
+      }
+      function fillCss() {
+        g5CodeEditor.postMessage(["cssBox", document.getElementById("css").value], "https://codeeditor.techboyg5blog.com");
+      }
+      function fillJs() {
+        g5CodeEditor.postMessage(["jsBox", document.getElementById("js").value], "https://codeeditor.techboyg5blog.com");
+      }
+    </script>
+  </body>
+</html>
