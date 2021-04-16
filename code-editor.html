@@ -102,30 +102,30 @@
             	<button onclick="$.fancybox.close();">OK</button>
         </div>
         <script>
-            var resultFrame = document.getElementById("result-frame");
-            function updateFrame() {
-                var html = document.getElementById("html").value;
-                var css = document.getElementById("css").value;
-                var js = document.getElementById("js").value;
-                resultFrame.contentWindow.document.open();
-                resultFrame.contentWindow.document.write(`
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                <style>
-                ${css}
-                </style>
-                </head>
-                <body>
-                ${html}
-                <script>
-                ${js}
-                <\/script>
-                </body>
-                </html>
-                `);
-                resultFrame.contentWindow.document.close();
-            }
+		var resultFrame = document.getElementById("result-frame");
+		function updateFrame() {
+		var html = document.getElementById("html").value;
+		var css = document.getElementById("css").value;
+		var js = document.getElementById("js").value;
+		resultFrame.contentWindow.document.open();
+		resultFrame.contentWindow.document.write(`
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		<style>
+		${css}
+		</style>
+		</head>
+		<body>
+		${html}
+		<script>
+		${js}
+		<\/script>
+		</body>
+		</html>
+		`);
+		resultFrame.contentWindow.document.close();
+		}
 		
 		function api(event) {
 			if (event.data[0] == "htmlBox") {
