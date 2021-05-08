@@ -126,34 +126,6 @@
 		`);
 		resultFrame.contentWindow.document.close();
 		}
-		
-		function api(event) {
-			if (event.data[0] == "htmlBox") {
-				document.getElementById("html").value = event.data[1];
-			}
-			if (event.data[0] == "cssBox") {
-				document.getElementById("css").value = event.data[1];
-			}
-			if (event.data[0] == "jsBox") {
-				document.getElementById("js").value = event.data[1];
-			}
-			if (event.data[0] == "updateFrame") {
-				updateFrame();
-			}
-			if (event.data[0] == "customCss") {
-				document.getElementById("custom-css").innerText = event.data[1];
-			}
-			if (event.data[0] == "getHtml") {
-				event.source.postMessage(["getHtmlCallback", document.getElementById("html").value], "*");
-			}
-			if (event.data[0] == "getCss") {
-				event.source.postMessage(["getCssCallback", document.getElementById("css").value], "*");
-			}
-			if (event.data[0] == "getJs") {
-				event.source.postMessage(["getJsCallback", document.getElementById("js").value], "*");
-			}
-		}
-		window.addEventListener("message", api);
         </script>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
