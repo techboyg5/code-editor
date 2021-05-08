@@ -76,9 +76,6 @@
                 cursor: pointer;
             }
         </style>
-	    <style id="custom-css">
-	    </style>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     </head>
     <body>
         <div class="container">
@@ -91,15 +88,6 @@
                 <div class="result-heading">Preview</div>
                 <iframe id="result-frame" src="about:blank"></iframe>
             </div>
-        </div>
-        <button class="about-button" data-fancybox data-src="#about-dialog">About</button>
-        <div id="about-dialog" style="display:none">
-		<h2>techboyg5 Code Editor</h2>
-		<p>A simple HTML, CSS, and JavaScript code editor that can easily be embedded in a website.</p>
-		<h3>Quick Embed</h3>
-		<pre style="overflow:auto">&lt;iframe id="g5CodeEditor" src="https://codeeditor.techboyg5blog.com/code-editor.html" width="400" height="300" frameborder="0"&gt;&lt;/iframe&gt;</pre>
-		<p>View the project on <a href="https://github.com/techboyg5/code-editor" target="_blank">GitHub</a>.</p>
-            	<button onclick="$.fancybox.close();">OK</button>
         </div>
         <script>
 		var resultFrame = document.getElementById("result-frame");
@@ -127,7 +115,5 @@
 		resultFrame.contentWindow.document.close();
 		}
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     </body>
 </html>
