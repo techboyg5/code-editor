@@ -14,15 +14,20 @@
             }
             .code, .result {
                 height: 100vh;
-                width: 50%;
             }
+		.code {
+			width: 25%;
+		}
+		.result {
+			width: 75%;
+		}
             .code {
                 display: flex;
                 flex-direction: column;
             }
             .code textarea {
                 height: 33%;
-                font-size: 24px;
+                font-size: 16px;
                 border: 1px solid silver;
                 box-shadow: 0 0 3px silver;
                 margin: 10px;
@@ -75,7 +80,7 @@
                 <textarea id="js" placeholder="Your JavaScript Here" oninput="updateFrame();"></textarea>
             </div>
             <div class="result">
-                <div class="result-heading">Preview</div>
+		    <div class="result-heading">Preview <a id="fs" href="#">(fullscreen)</a></div>
                 <iframe id="result-frame" src="about:blank"></iframe>
             </div>
         </div>
